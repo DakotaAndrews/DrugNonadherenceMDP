@@ -1,5 +1,7 @@
 using namespace std;
 
+int num_of_states = 100;
+double state_width = 1.1 / (num_of_states - 1);
 double D = 0.1; // dosage
 double V = 1.0; // Volume of distribution
 double F = 1.0; // Bioavailability fraction
