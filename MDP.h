@@ -6,7 +6,7 @@ using namespace std;
 
 
 double norm(vector<double>, vector<double>);
-vector<double> iteration(vector<double>);
+double dosage_cutoff(double);
 
 
 
