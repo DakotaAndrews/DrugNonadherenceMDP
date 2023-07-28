@@ -1,7 +1,7 @@
 clear all
 clc
 
-Data1 = load('data-2.txt');
+Data1 = load('data.txt');
 X = (Data1(:,1))
 Y = (Data1(:,2))
 figure(1)
