@@ -62,7 +62,7 @@ vector<double> iteration(vector<double> prev_iteration, double t_half, double al
     return curr_iteration;
 }
 
-double dosage_cutoff(double t_half){
+double dosage_cutoff(double t_half){ // calculates the cutoff for where the MDP recommends 1 or 2 doses; averages the concentrations of largest concentration that recommends 2 and smallest concentration that recommends 1 dose
     double alpha = pow(2, -tau / t_half); // fractional amount of drug left after 1 'cycle'
     double C_perf_max = D * F  / (V * (1 - alpha)); // C_perf(0)
     vector<double> V_0(2 * num_of_states);
