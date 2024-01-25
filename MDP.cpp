@@ -88,9 +88,9 @@ double dosage_cutoff(double t_half){ // calculates the cutoff for where the MDP 
                 return 0.0;
             }
             if (i == 2 * num_of_states - 1){
-                return 1.1 * C_perf_max;
+                return 1.1;
             }
-            return C_perf_max * state_width * (i - num_of_states - 0.5);
+            return state_width * (i - num_of_states - 0.5);
         }
     }
     return -1.0;
