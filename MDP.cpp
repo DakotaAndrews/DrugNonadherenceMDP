@@ -1,12 +1,19 @@
 #include <vector>
 #include <cmath>
+#include <iostream>
 #include "settings.cpp"
 using namespace std;
 
 
 
 double reward(double con, double action, double alpha, double C_perf){ // reward function for a given concentration and number of doses
-    return (con + action * D) * alpha / C_perf;
+    double mu = (con + action * D) * alpha / C_perf; // TODO: fix this
+    double e = abs(mu - 1); // TODO: fix this
+    double theta = (con + action * D) / C_perf;
+    double w_e = 0.5;
+    double w_theta = 0.5;
+    if (theta >= c_toxic){return 10000;};
+    return w_e * e + w_theta / ((c_toxic - theta));
 }
 
 double new_state(double con, double action, double alpha, double C_perf_max){ // returns new state for a given concentration and number of doses
@@ -54,7 +61,7 @@ vector<double> iteration(vector<double> prev_iteration, double t_half, double al
         }
         curr_iteration[state] = outcomes[0];
         curr_iteration[state + num_of_states] = 1.0;
-        if (abs(1 - outcomes[0]) > abs(1 - outcomes[1])){
+        if (outcomes[0] > outcomes[1]){
             curr_iteration[state] = outcomes[1];
             curr_iteration[state + num_of_states] = 2.0;
         }

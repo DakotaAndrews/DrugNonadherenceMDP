@@ -11,3 +11,4 @@ double F = 1.0; // Bioavailability fraction
 double tau = 1.0; // time between doses
 double p = 0.8; // probability of remembering to take drug
 double discount_factor = 0.2; // discount factor (value of future outcomes)
+double c_toxic = 1.4; // Amount of drug it takes to perish the patient
